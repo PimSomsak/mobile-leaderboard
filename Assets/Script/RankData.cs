@@ -8,13 +8,15 @@ public struct PlayerData
     public string playerName;
     public int rankNumber;
     public int playerScore;
+    public int bossNo;
     public Sprite profileSprite;
 
-    public PlayerData(int rankNumber, string playerName, int playerScore, Sprite profileSprite)
+    public PlayerData(int rankNumber, string playerName, int playerScore, int bossNo, Sprite profileSprite)
     {
         this.rankNumber = rankNumber;
         this.playerName = playerName;
         this.playerScore = playerScore;
+        this.bossNo = bossNo;
         this.profileSprite = profileSprite;
     }
 }
@@ -28,7 +30,9 @@ public class RankData : MonoBehaviour
     [SerializeField] private TMP_Text rankText;
     [SerializeField] private TMP_Text playerNameText;
     [SerializeField] private TMP_Text scoreText;
+    [SerializeField] private TMP_Text bossText;
 
+    [ContextMenu("Update Data")]
     public void UpdateData()
     {
         profileImg.texture =
@@ -38,5 +42,6 @@ public class RankData : MonoBehaviour
         rankText.text = playerData.rankNumber.ToString();
         playerNameText.text = playerData.playerName;
         scoreText.text = playerData.playerScore.ToString("0");
+        bossText.text = playerData.bossNo.ToString();
     }
 }
